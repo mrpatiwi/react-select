@@ -14,7 +14,8 @@ const Option = React.createClass({
 		onSelect: React.PropTypes.func,                     // method to handle click on option element
 		onUnfocus: React.PropTypes.func,                    // method to handle mouseLeave on option element
 		option: React.PropTypes.object.isRequired,          // object that is base for that option
-		optionIndex: React.PropTypes.number                 // index of the option, used to generate unique ids for aria
+		optionIndex: React.PropTypes.number,                // index of the option, used to generate unique ids for aria
+		labelKey: React.PropTypes.string
 	},
 
 	blockEvent (event) {
@@ -88,7 +89,7 @@ const Option = React.createClass({
 				onTouchEnd={this.handleTouchEnd}
 				id={instancePrefix + '-option-' + optionIndex}
 				title={option.title}>
-				{ option.create ? this.props.addLabelText.replace('{label}', option.label) : this.props.children }
+				{ option.create ? this.props.addLabelText.replace('{label}', option[this.props.labelKey]) : this.props.children }
 			</div>
 		);
 	}

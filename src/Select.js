@@ -840,6 +840,7 @@ const Select = React.createClass({
 							className={optionClass}
 							isDisabled={option.disabled}
 							isFocused={isFocused}
+							labelKey={this.props.labelKey}
 							key={`option-${i}-${option[this.props.valueKey]}`}
 							onSelect={this.selectValue}
 							onFocus={this.focusOption}
